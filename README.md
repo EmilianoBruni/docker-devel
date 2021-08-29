@@ -6,12 +6,12 @@
 docker-devel is a platform to develop [Perl](https://www.perl.org) apps.
 
 The images are based on alpine:3.14 and provide installed together with this perl modules:
-.
+[Data::Printer](https://metacpan.org/pod/Data::Printer).
 
 # Supported tags and respective Dockerfile links
 
-* docker-devel: [1.0, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: **197MB**)
-* docker-devel: [1.0-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: **321MB**)
+* docker-devel: [1.1, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: ****)
+* docker-devel: [1.1-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: ****)
 with library
 	* [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla),
 	* [Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes](https://metacpan.org/pod/Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes),

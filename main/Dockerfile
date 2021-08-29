@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR          DATE        VERSION   COMMENTS
+#   Emiliano Bruni  2021-08-29  1.1       Add Data::Printer
 #   Emiliano Bruni  2021-08-26  1.0       Initial Version
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -48,6 +49,9 @@ RUN apk update && apk add --no-cache \
     openssl-dev \
     zlib-dev \
     git \
+  && cpanm --no-wget \
+    Data::Printer \
+  && rm -r /root/.cpanm \
   && true
 
 ARG NOW=not-set
@@ -59,6 +63,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile
 LABEL org.opencontainers.image.title=docker-devel
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-devel
-LABEL org.opencontainers.image.version=1.0
+LABEL org.opencontainers.image.version=1.1
 
 CMD ["/bin/ash"]
