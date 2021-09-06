@@ -10,8 +10,8 @@ The images are based on alpine:3.14 and provide installed together with this per
 
 # Supported tags and respective Dockerfile links
 
-* docker-devel: [1.2, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: ****)
-* docker-devel: [1.2-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: ****)
+* docker-devel: [1.2, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: **194MB**)
+* docker-devel: [1.2-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: **319MB**)
 with library
 	* [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla),
 	* [Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes](https://metacpan.org/pod/Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes),
