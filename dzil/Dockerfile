@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR          DATE        VERSION   COMMENTS
+#   Emiliano Bruni  2021-09-06  1.2       Add MinimumPerl to Dist::Zilla
 #   Emiliano Bruni  2021-08-29  1.1       Add Data::Printer
 #   Emiliano Bruni  2021-08-26  1.0       Initial Version
 #
@@ -60,6 +61,7 @@ RUN apk update && apk add --no-cache \
     Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes \
     Dist::Zilla::Plugin::GithubMeta \
     Dist::Zilla::Plugin::MinimumPerlFast \
+    Dist::Zilla::Plugin::MinimumPerl \
     Dist::Zilla::Plugin::PodWeaver \
     Dist::Zilla::Plugin::ReadmeAnyFromPod \
     Dist::Zilla::Plugin::Regenerate::AfterReleasers \
@@ -76,6 +78,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile
 LABEL org.opencontainers.image.title=docker-devel
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-devel
-LABEL org.opencontainers.image.version=1.1-dzil
+LABEL org.opencontainers.image.version=1.2-dzil
 
 CMD ["/bin/ash"]

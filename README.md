@@ -10,13 +10,14 @@ The images are based on alpine:3.14 and provide installed together with this per
 
 # Supported tags and respective Dockerfile links
 
-* docker-devel: [1.1, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: ****)
-* docker-devel: [1.1-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: ****)
+* docker-devel: [1.2, latest (main/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile) (size: ****)
+* docker-devel: [1.2-dzil, dzil (dzil/Dockerfile)](https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile) (size: ****)
 with library
 	* [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla),
 	* [Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes](https://metacpan.org/pod/Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes),
 	* [Dist::Zilla::Plugin::GithubMeta](https://metacpan.org/pod/Dist::Zilla::Plugin::GithubMeta),
 	* [Dist::Zilla::Plugin::MinimumPerlFast](https://metacpan.org/pod/Dist::Zilla::Plugin::MinimumPerlFast),
+	* [Dist::Zilla::Plugin::MinimumPerl](https://metacpan.org/pod/Dist::Zilla::Plugin::MinimumPerl),
 	* [Dist::Zilla::Plugin::PodWeaver](https://metacpan.org/pod/Dist::Zilla::Plugin::PodWeaver),
 	* [Dist::Zilla::Plugin::ReadmeAnyFromPod](https://metacpan.org/pod/Dist::Zilla::Plugin::ReadmeAnyFromPod),
 	* [Dist::Zilla::Plugin::Regenerate::AfterReleasers](https://metacpan.org/pod/Dist::Zilla::Plugin::Regenerate::AfterReleasers),
