@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-# AUTHOR  :  Emiliano Bruni <info@ebruni.it>
-# DATE    :  2021-08-26
+# AUTHORS :  Emiliano Bruni (EB) <info@ebruni.it>
+# DATE    :  2021-09-29
 # PURPOSE :
 #   a platform to develop [Perl](https://www.perl.org) apps.
 #
@@ -11,10 +11,11 @@
 #   docker build -t devel .
 #
 # UPDATES:
-#   AUTHOR          DATE        VERSION   COMMENTS
-#   Emiliano Bruni  2021-09-06  1.2       Add MinimumPerl to Dist::Zilla
-#   Emiliano Bruni  2021-08-29  1.1       Add Data::Printer
-#   Emiliano Bruni  2021-08-26  1.0       Initial Version
+#   AUTHOR  DATE        VER  COMMENTS
+#   EB      2021-09-29  1.3  Add Autoprereqs, Prereqs, PkgVersion
+#   EB      2021-09-06  1.2  Add MinimumPerl to Dist::Zilla
+#   EB      2021-08-29  1.1  Add Data::Printer
+#   EB      2021-08-26  1.0  Initial Version
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -50,9 +51,10 @@ RUN apk update && apk add --no-cache \
     openssl-dev \
     zlib-dev \
     git \
-  && cpanm --no-wget \
+  && cpanm --no-wget -n \
     Data::Printer \
   && rm -r /root/.cpanm \
+  && apk del \
   && true
 
 ARG NOW=not-set
@@ -64,6 +66,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-devel/blob/master/main/Dockerfile
 LABEL org.opencontainers.image.title=docker-devel
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-devel
-LABEL org.opencontainers.image.version=1.2
+LABEL org.opencontainers.image.version=1.3
 
 CMD ["/bin/ash"]
