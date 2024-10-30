@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 # AUTHORS :  Emiliano Bruni (EB) <info@ebruni.it>
-# DATE    :  2021-09-29
+# DATE    :  2024-10-30
 # PURPOSE :
 #   a platform to develop [Perl](https://www.perl.org) apps.
 #
@@ -12,6 +12,7 @@
 #
 # UPDATES:
 #   AUTHOR  DATE        VER  COMMENTS
+#   EB      2024-10-30  2.0  Update alpine to 3.20. Support for autocomplete in debug
 #   EB      2021-09-29  1.3  Add Autoprereqs, Prereqs, PkgVersion
 #   EB      2021-09-06  1.2  Add MinimumPerl to Dist::Zilla
 #   EB      2021-08-29  1.1  Add Data::Printer
@@ -25,15 +26,15 @@
 #
 # do not edit it directly
 #
-FROM alpine:3.14
-MAINTAINER Emiliano Bruni <info@ebruni.it>
+FROM alpine:3.20
+LABEL maintainer="Emiliano Bruni <info@ebruni.it>"
+ENV TZ=Europe/Rome
 
 WORKDIR /usr/src
 EXPOSE 3000 8080
 
 RUN apk update && apk add --no-cache \
-    make \
-    gcc \
+    build-base \
     perl-dev \
     perl-app-cpanminus \
     perl-module-build \
@@ -51,12 +52,16 @@ RUN apk update && apk add --no-cache \
     openssl-dev \
     zlib-dev \
     git \
+    perl-data-printer \
+    perl-term-readkey \
+    perl-padwalker \
+    readline-dev \
+    tzdata \
   && cpanm --no-wget -n \
-    Data::Printer \
+    Term::ReadLine::Perl \
+    Term::ReadLine::Gnu \
   && rm -r /root/.cpanm \
  && apk add --no-cache \
-    musl-dev \
-    g++ \
 && cpanm --no-wget -n \
     Dist::Zilla \
     Dist::Zilla::Plugin::ChangelogFromGit::CPAN::Changes \
@@ -73,6 +78,8 @@ RUN apk update && apk add --no-cache \
     Software::License::Perl_5 \
   && rm -r /root/.cpanm \
   && apk del \
+    readline-dev \
+    ncurses-dev \
   && true
 
 ARG NOW=not-set
@@ -84,6 +91,6 @@ LABEL org.opencontainers.image.licenses=Artistic-2.0
 LABEL org.opencontainers.image.source=https://github.com/EmilianoBruni/docker-devel/blob/master/dzil/Dockerfile
 LABEL org.opencontainers.image.title=docker-devel
 LABEL org.opencontainers.image.url=https://github.com/EmilianoBruni/docker-devel
-LABEL org.opencontainers.image.version=1.3-dzil
+LABEL org.opencontainers.image.version=2.0-dzil
 
 CMD ["/bin/ash"]
