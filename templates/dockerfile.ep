@@ -20,7 +20,10 @@
 #
 %= $warning
 FROM <%= $release->{$from} || $from %>
-MAINTAINER <%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>
+LABEL maintainer="<%= $global->{author}->{name} . ' <' . $global->{author}->{mail} . '>' %>"
+%   for my $key (sort keys $global->{env}->%*) {
+ENV <%= "$key=$global->{env}{$key}" %>
+% }
 
 WORKDIR <%= $global->{app_folder} %>
 %= 'EXPOSE '. $global->{publish} if ($global->{publish});
@@ -38,7 +41,7 @@ RUN apk update && apk add --no-cache \\
 % } # if (scalar($global...)
 % if ($release->{env}) {
 %   for my $key (sort keys $release->{env}->%*) {
-ENV <%= "$key $release->{env}{$key}" %>
+ENV <%= "$key=$release->{env}{$key}" %>
 %   }
 % }
 % if ($release->{packages}) {
