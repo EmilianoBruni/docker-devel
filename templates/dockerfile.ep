@@ -32,6 +32,8 @@ RUN apk update && apk add --no-cache \\
 % for ($global->{os_packages}->@*) {
     <%= $_ %> \\
 % }
+  # remove safe.directory warning from git
+  && git config --global --add safe.directory '*' \ 
 % if (scalar($global->{perl_modules}->@*)) {
   && cpanm --no-wget -n \\
 % for ($global->{perl_modules}->@*) {
